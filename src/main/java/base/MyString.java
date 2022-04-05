@@ -1,8 +1,30 @@
 package base;
 
-import java.util.Scanner;
+import java.util.*;;
 
 public class MyString {
+
+    public static void main(String[] args){
+
+        System.out.println("Introduzca una frase: ");
+        //String phrase = "I am learning about classes and strings and maps";
+        Scanner scannerEntry = new Scanner(System.in);
+        String phrase = scannerEntry.nextLine();
+        System.out.println("La frase que introdujo es: "+phrase);
+
+        System.out.println("La frase reversada es: "+reversarFrase(phrase));
+        System.out.println("Cada palabra reversada queda: "+reversarPalabras(phrase));
+
+        System.out.println("Introduzca una palabra para buscar en la frase: ");
+        //String palabraBuscada = "and";
+        scannerEntry = new Scanner(System.in);
+        String palabraBuscada = scannerEntry.nextLine();
+        encontrarPalabra(phrase, palabraBuscada);
+
+        contarLetras(phrase);
+
+        System.out.println(eliminarPalabrasDuplicadas(phrase));
+    }
 
     static String reversarPalabras(String phrase) {
 
@@ -75,9 +97,10 @@ public class MyString {
 
         String[] palabras = phrase.split(" ");
         for (int i = 0; i < palabras.length; i++){
-            String[] palabraUnica = palabras[i].split("");
-            for (int j = i + 1; j < palabras.length-1; j++){
-                if (String.valueOf(palabraUnica) == String.valueOf(palabras[j])){
+            String palabraUnica = palabras[i];
+            for (int j = i + 1; j < palabras.length; j++){
+                String otraPalabra = palabras[j];
+                if (palabraUnica.equals(otraPalabra)){
                     palabras[j] = "";
                 }
             }
@@ -89,27 +112,5 @@ public class MyString {
         }
 
         return nuevaPhrase;
-    }
-
-    public static void main(String[] args){
-
-        System.out.println("Introduzca una frase: ");
-        String phrase = "I am learning about classes and strings and maps";
-        Scanner scannerEntry = new Scanner(System.in);
-        phrase = scannerEntry.nextLine();
-        System.out.println("La frase que introdujo es: "+phrase);
-
-        System.out.println("La frase reversada es: "+reversarFrase(phrase));
-        System.out.println("Cada palabra reversas queda: "+reversarPalabras(phrase));
-
-        System.out.println("Introduzca una palabra para buscar en la frase: ");
-        String palabraBuscada = "and";
-        scannerEntry = new Scanner(System.in);
-        palabraBuscada = scannerEntry.nextLine();
-        encontrarPalabra(phrase, palabraBuscada);
-
-        contarLetras(phrase);
-
-        System.out.println(eliminarPalabrasDuplicadas(phrase));
     }
 }
