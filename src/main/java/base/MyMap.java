@@ -86,8 +86,6 @@ public class MyMap {
 
     public static HashMap<Integer, String> eliminarRepetidos(HashMap<Integer, String> nombrePersonas){
 
-        HashMap<Integer, String> nombrePersonasCopia = new HashMap<Integer, String> (nombrePersonas);
-
         String[] valores = new String[nombrePersonas.size()];
         int[] llaves = new int[nombrePersonas.size()];
 
