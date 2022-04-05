@@ -1,5 +1,7 @@
 package base;
 
+import java.util.Scanner;
+
 public class MyString {
 
     static String reversarFrase(String phrase) {
