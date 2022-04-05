@@ -42,15 +42,36 @@ public class MyString {
     }
 
     static String encontrarPalabra(String phrase, String palabraBuscada){
+
         int posicionPalabra = phrase.indexOf(palabraBuscada);
         if ( posicionPalabra == -1) {
             System.out.println("La palabra buscada no existe");
         }
         else{
-            System.out.println("La palabra buscada es la " + posicionPalabra + " palabra");
+            System.out.println("La palabra buscada si está en la frase");
 
         }
         return "";
+    }
+
+    static String eliminarPalabrasDuplicadas(String phrase){
+
+        String[] palabras = phrase.split(" ");
+        for (int i = 0; i < palabras.length; i++){
+            String palabraUnica = palabras[i];
+            for (int j = i + 1; j < palabras.length-1; j++){
+                if (String.valueOf(palabraUnica) == String.valueOf(palabras[j])){
+                    palabras[j] = "";
+                }
+            }
+        }
+
+        String nuevaPhrase = palabras[0];
+        for (int i = 1; i <= palabras.length - 1; i++) {
+            nuevaPhrase = nuevaPhrase + " " + palabras[i];
+        }
+
+        return nuevaPhrase;
     }
 
     public static void main(String[] args){
@@ -61,5 +82,6 @@ public class MyString {
 
         contarLetras(phrase);
         encontrarPalabra(phrase, palabraBuscada);
+        System.out.println(eliminarPalabrasDuplicadas(phrase));
     }
 }
